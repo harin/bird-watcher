@@ -43,15 +43,18 @@ module.exports.get_bird_internships = async (event, context) => {
     body = err.toString();
   }
 
-  sendEmail({ 
-    from: FROM_EMAIL, 
-    to: TO_EMAIL,
-    text: JSON.stringify(body)
-  })
+  // if (body && body.length > 0) {
+    sendEmail({ 
+      subject: `Found Internship at Bird!`,
+      from: FROM_EMAIL, 
+      to: TO_EMAIL,
+      text: JSON.stringify(body)
+    })
+  // }
   
   return {
     statusCode: 200,
-    body
+    body: JSON.stringify(body)
   };
 };
 
