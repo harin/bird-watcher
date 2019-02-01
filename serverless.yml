@@ -45,6 +45,9 @@ provider:
   environment:
     BIRD_RESULT_URL: ${env:BIRD_RESULT_URL}
     MAILGUN_API_KEY: ${env:MAILGUN_API_KEY}
+    MAILGUN_DOMAIN: ${env:MAILGUN_DOMAIN}
+    FROM_EMAIL: ${env:FROM_EMAIL}
+    TO_EMAIL: ${env:TO_EMAIL}
 
 # you can add packaging information here
 #package:

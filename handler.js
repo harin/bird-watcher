@@ -3,12 +3,13 @@ const mailgun = require('mailgun-js');
 
 const RESULT_URL = process.env.BIRD_RESULT_URL;
 const MAILGUN_API_KEY = process.env.MAILGUN_API_KEY;
+const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN;
 const FROM_EMAIL = process.env.FROM_EMAIL;
 const TO_EMAIL = process.env.TO_EMAIL;
 
 const mg = mailgun({
   apiKey: MAILGUN_API_KEY,
-  domain: 'whatever'
+  domain: MAILGUN_DOMAIN
 })
 
 
@@ -53,3 +54,12 @@ module.exports.get_bird_internships = async (event, context) => {
     body
   };
 };
+
+if (require.main === module) {
+  async function main() {
+    const result = await module.exports.get_bird_internships()
+    console.log(result)
+  }
+
+  main()
+}
