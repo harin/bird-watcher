@@ -44,12 +44,13 @@ module.exports.get_bird_internships = async (event, context) => {
   }
 
   // if (body && body.length > 0) {
-    sendEmail({ 
+    const mgResp = await sendEmail({ 
       subject: `Found Internship at Bird!`,
       from: FROM_EMAIL, 
       to: TO_EMAIL,
       text: JSON.stringify(body)
     })
+    console.log(mgResp)
   // }
   
   return {
