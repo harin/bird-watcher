@@ -43,7 +43,7 @@ module.exports.get_bird_internships = async (event, context) => {
     body = err.toString();
   }
 
-  // if (body && body.length > 0) {
+  if (body && body.length > 0) {
     const mgResp = await sendEmail({ 
       subject: `Found Internship at Bird!`,
       from: FROM_EMAIL, 
@@ -51,7 +51,7 @@ module.exports.get_bird_internships = async (event, context) => {
       text: JSON.stringify(body)
     })
     console.log(mgResp)
-  // }
+  }
   
   return {
     statusCode: 200,
